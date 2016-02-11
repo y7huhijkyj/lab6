@@ -62,4 +62,22 @@ function callbackEmpty(result) {
  */
 function randomizeColors(e) {
 	console.log("User clicked on color button");
+
+	$.get("/palette", callbackPalette); // results of the GET get passed into callbackEmpty
+
+
+}
+
+function callbackPalette(result) {
+
+	var colors = result.colors.hex;
+	console.log(colors[0]);
+
+	$('body').css('background-color', colors[0]);
+	$('.thumbnail').css('background-color', colors[1]);
+	$('h1, h2, h3, h4, h5, h5').css('color', colors[2]);
+	$('p').css('color', colors[3]);
+	$('.project img').css('opacity', .75);
+
+
 }
